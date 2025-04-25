@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pingg\\Solution\\Math\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F7F6631E-CC07-4668-8D2A-9A09389F83AC}|Math\\Math.csproj|c:\\users\\pingg\\solution\\math\\math\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7F6631E-CC07-4668-8D2A-9A09389F83AC}|Math\\Math.csproj|solutionrelative:math\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\pingg\\Solution\\Math\\Math\\Program.cs",
+              "RelativeDocumentMoniker": "Math\\Program.cs",
+              "ToolTip": "C:\\Users\\pingg\\Solution\\Math\\Math\\Program.cs",
+              "RelativeToolTip": "Math\\Program.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-11T01:35:58.222Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
