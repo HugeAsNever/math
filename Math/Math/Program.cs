@@ -69,7 +69,7 @@ SaveToFile(ref questions);
 
 void SaveToFile(ref List<string> questions)
 {
-    var dateString = DateTime.Now.Date.ToString("yyyyMMdd");
+    var dateString = DateTime.Now.Date.ToString("yyyy-MM-dd");
     string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
     string fileName = Path.Combine(desktopPath, $"math-{dateString}.docx");
 
@@ -88,10 +88,11 @@ void SaveToFile(ref List<string> questions)
         foreach (var question in questions)
         {
             body.Append(new Paragraph(new Run(new Text(question))));
-            body.Append(new Paragraph(new Run(new Text("")))); // Empty line
         }
 
         // Add a placeholder for the mark
+        body.Append(new Paragraph(new Run(new Text("")))); // Empty line
+        body.Append(new Paragraph(new Run(new Text("")))); // Empty line
         body.Append(new Paragraph(new Run(new Text("Mark: ___________"))));
 
         // Finalize the document
