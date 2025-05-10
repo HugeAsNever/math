@@ -1,5 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Xml.Linq;
+﻿using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Text = DocumentFormat.OpenXml.Wordprocessing.Text;
 
 Console.WriteLine("Enter the max value of addend/minuend (eg. 20): ");
 int maxNumber = int.Parse(Console.ReadLine()) + 1;
@@ -70,19 +71,32 @@ void SaveToFile(ref List<string> questions)
 {
     var dateString = DateTime.Now.Date.ToString("yyyyMMdd");
     string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-    string fileName = Path.Combine(desktopPath, $"math-{dateString}.doc");
-    using (StreamWriter writer = new StreamWriter(fileName))
+    string fileName = Path.Combine(desktopPath, $"math-{dateString}.docx");
+
+    using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(fileName, DocumentFormat.OpenXml.WordprocessingDocumentType.Document))
     {
-        writer.WriteLine(dateString);
-        writer.WriteLine();
-        writer.WriteLine();
-        for (int idx = 0; idx < questions.Count; idx++)
+        // Add a main document part
+        MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
+        mainPart.Document = new Document();
+        Body body = new Body();
+
+        // Add the date
+        body.Append(new Paragraph(new Run(new Text(dateString))));
+        body.Append(new Paragraph(new Run(new Text("")))); // Empty line
+
+        // Add questions
+        foreach (var question in questions)
         {
-            writer.WriteLine(questions[idx]);
-            writer.WriteLine();
+            body.Append(new Paragraph(new Run(new Text(question))));
+            body.Append(new Paragraph(new Run(new Text("")))); // Empty line
         }
-        writer.WriteLine();
-        writer.WriteLine("Mark: ___________");
+
+        // Add a placeholder for the mark
+        body.Append(new Paragraph(new Run(new Text("Mark: ___________"))));
+
+        // Finalize the document
+        mainPart.Document.Append(body);
+        mainPart.Document.Save();
     }
 }
 
