@@ -68,8 +68,9 @@ SaveToFile(ref questions);
 
 void SaveToFile(ref List<string> questions)
 {
-    var dateString = DateTime.Now.Date.ToString("d");
-    string fileName = $"math-{dateString}.doc";
+    var dateString = DateTime.Now.Date.ToString("yyyyMMdd");
+    string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+    string fileName = Path.Combine(desktopPath, $"math-{dateString}.doc");
     using (StreamWriter writer = new StreamWriter(fileName))
     {
         writer.WriteLine(dateString);
